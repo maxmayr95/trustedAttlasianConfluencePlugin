@@ -1,0 +1,30 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="trusted-connection-plugin"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="trusted-connection-plugin-resources" name="trusted-connection-plugin Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="trusted-connection-plugin.css" location="/css/trusted-connection-plugin.css"/>
+        <resource type="download" name="trusted-connection-plugin.js" location="/js/trusted-connection-plugin.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>trusted-connection-plugin</context>
+        
+    </web-resource>
+    <xhtml-macro name="testMacro"
+			class="trusted_connection_plugin.com.maxmayr.macro.Trusted" key='trusted-macro'>
+			<description key="trusted.macro.desc" />
+			<category name="formatting" />
+			<parameters />
+		</xhtml-macro>
+</atlassian-plugin>
