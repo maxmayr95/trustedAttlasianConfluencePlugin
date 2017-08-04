@@ -15,6 +15,7 @@ public class ApiCaller {
     	try {
     		ApplicationLinkRequest request = requestFactory.createRequest(method, url);
     		if(body!=null && method != MethodType.GET){
+			request.setHeader("Content-Type", "application/json");
     			request.setRequestBody(body);
     		}
 
